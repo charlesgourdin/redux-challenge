@@ -1,25 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './RandomSquare.css';
 
-const colors = ["OrangeRed", "RoyalBlue", "SeaGreen", "Gold", "DarkOrange" , "Purple"]
 
 
 
-class RandomSquare extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            style:{
-                backgroundColor:colors[Math.floor(6*Math.random())]
-            }          
-        }
-    }
 
-    render(){
+function RandomSquare (backgroundColor) {
+
         return(
-            <span className="square" style={this.state.style}></span>
+            <span className="square" style={backgroundColor}></span>
         )
-    }
+
 }
 
 export default RandomSquare
