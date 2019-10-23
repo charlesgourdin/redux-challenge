@@ -7,15 +7,23 @@ const colors = ["OrangeRed", "RoyalBlue", "SeaGreen", "Gold", "DarkOrange" , "Pu
 class CreateARow extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            backgroundColor:colors[Math.floor(6*Math.random())]        
+        this.state = {       
         }
+    }
+
+    GenerateRow = () => {
+        const row =[]
+        for (let i=0 ; i<4  ; i++){
+            row.push(<RandomSquare backgroundColor={colors[Math.floor(6*Math.random())]} key={i}/>)
+        }
+        console.log(row)
+        return row
     }
 
     render(){
         return (
             <div className="rowToFind">
-                <RandomSquare backgroundColor={this.state.backgroundColor}/>
+                {this.GenerateRow()}
             </div>
         )
     }
