@@ -1,7 +1,27 @@
 .row {
     display: flex;
+    justify-content: space-around;
     width: 40%;
+    min-width: 300px;
     margin: auto;
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.button button{
+    border-radius:28px;
+    border:1px solid #1d1d1d;
+    display:inline-block;
+    cursor:pointer;
+    padding:16px 31px;
 }

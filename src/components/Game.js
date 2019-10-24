@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import './Game.css'
 import RowToFind from './RowToFind';
 import Combinaison from './Combinaison';
+import Clavier from './Clavier';
 
-const colors = ["OrangeRed", "RoyalBlue", "SeaGreen", "Gold", "DarkOrange" , "Purple"]
 
-class CreateARow extends Component{
+
+class Game extends Component{
     constructor(props){
         super(props)
         this.state = {  
@@ -15,10 +16,12 @@ class CreateARow extends Component{
         }
     }
 
+    colors = ["OrangeRed", "RoyalBlue", "SeaGreen","gold"]
+
     GenerateRowToFind = () => {
         const row =[]
         for (let i=0 ; i<4  ; i++){
-            row.push({color:colors[Math.floor(6*Math.random())], border:'1px black solid'})
+            row.push({color:this.colors[Math.floor(4*Math.random())], border:'1px black solid'})
         }
         return row
     }
@@ -31,15 +34,22 @@ class CreateARow extends Component{
         return row
     }
 
+    changeColor =(newColor)=>{
+        let item = Object.assign({}, this.state.combinaison[0], {color: newColor});
+        this.state.combinaison[0] = item;
+        this.setState({combinaison: this.state.combinaison});
+    }
+
+
     render(){
         return (
             <div>
                 <RowToFind toFind={this.state.toFind}/>
                 <Combinaison combinaison={this.state.combinaison}/>
-                <div>ici le clavier</div>
+                <Clavier colors={this.colors} changeColor={this.changeColor}/>
             </div>
         )
     }
 }
 
-export default CreateARow
+export default Game
