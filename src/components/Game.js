@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Square from './Square'
 import './Game.css'
+import RowToFind from './RowToFind';
+import Combinaison from './Combinaison';
 
 const colors = ["OrangeRed", "RoyalBlue", "SeaGreen", "Gold", "DarkOrange" , "Purple"]
 
@@ -33,26 +34,8 @@ class CreateARow extends Component{
     render(){
         return (
             <div>
-                <div className="row">
-                    {this.state.toFind.map((item,i)=>{
-                        return (
-                            <Square
-                            backgroundColor={item.color}
-                            border={item.border}                      
-                            key={i}/>
-                        )
-                    })}
-                </div>
-                <div className="row">
-                    {this.state.combinaison.map((item,i)=>{
-                        return (
-                            <Square
-                            backgroundColor={item.color}
-                            border={item.border}                      
-                            key={i}/>
-                        )
-                    })}
-                </div>
+                <RowToFind toFind={this.state.toFind}/>
+                <Combinaison combinaison={this.state.combinaison}/>
                 <div>ici le clavier</div>
             </div>
         )
